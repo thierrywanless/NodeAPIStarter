@@ -1,6 +1,6 @@
 import { Express, Router } from "express";
 
-import UserRoutes from "@routes/User/UserRoutes";
+import UserRoutes from "@routes/user/UserRoutes";
 
 export default class InitializeRoutes {
   // Initialize app routing from base url ".../"

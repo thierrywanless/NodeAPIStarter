@@ -1,5 +1,5 @@
 import RouteMapType from "@domainTypes/RouteMapType";
-import GetUserController from "@routes/User/GetUserController";
+import GetUserController from "@routes/user/GetUserController";
 import { logRequest } from "@middleware/DynamicMiddleware";
 
 // Contains router mappings for user routes
