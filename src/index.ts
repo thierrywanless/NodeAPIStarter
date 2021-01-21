@@ -2,4 +2,6 @@ require("module-alias/register");
 
 import Server from "@core/Server";
 
-Server();
+const appServer = Server();
+
+export default appServer;
