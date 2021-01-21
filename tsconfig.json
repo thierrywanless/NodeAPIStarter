@@ -14,10 +14,11 @@
     "paths": {
       "@constants/*": ["src/constants/*"],
       "@core/*": ["src/core/*"],
+      "@domainTypes/*": ["src/types/*"],
       "@middleware/*": ["src/middleware/*"],
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
-      "@domainTypes/*": ["src/types/*"],
+      "@src/*": ["src/*"],
       "@utils/*": ["src/utils/*"]
     }
   }
