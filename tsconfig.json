@@ -8,18 +8,24 @@
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": "./",
+    "skipLibCheck": true,
     "paths": {
       "@constants/*": ["src/constants/*"],
       "@core/*": ["src/core/*"],
       "@domainTypes/*": ["src/types/*"],
       "@middleware/*": ["src/middleware/*"],
+      "@models/*": ["src/models/*"],
+      "@repositories": ["src/repositories/index"],
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@src/*": ["src/*"],
       "@utils/*": ["src/utils/*"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }

@@ -5,7 +5,7 @@ import { expect } from "chai";
 import chaiHttp from "chai-http";
 
 import StatusConstants from "@constants/StatusConstants";
-import AppServer from "@src/index";
+import { AppServer } from "@src/index";
 
 chai.use(chaiHttp);
 

@@ -17,7 +17,7 @@ export default async function server(): Promise<Express> {
 
   const link = "http://" + host + ":" + port.toString();
   app.listen(port, host, () => {
-    console.log(`Server  started on: ${link}`);
+    console.log(`Server started on: ${link}`);
   });
 
   return Promise.resolve(app);

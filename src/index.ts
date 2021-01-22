@@ -1,7 +1,12 @@
 require("module-alias/register");
 
-import Server from "@core/Server";
+import InitializeDatabase from "@core/InitializeDatabase";
 
-const appServer = Server();
+const AppDatabase = InitializeDatabase;
 
-export default appServer;
+// Must be imported after database is initialized
+import InitializeServer from "@core/InitializeServer";
+
+const AppServer = InitializeServer();
+
+export { AppDatabase, AppServer };

@@ -6,9 +6,8 @@ import StatusConstants from "@constants/StatusConstants";
 
 // Example format for Controller
 export default class GetUserController extends AbstractRouteController {
-  // runService must be implemented to call service code
-  public async runService(req: Request, resp: Response): Promise<any> {
-    const response = await UserService.getUser();
+  public async exec(req: Request, resp: Response): Promise<any> {
+    const response = await UserService.getUser(req.body.userId);
 
     resp.status(StatusConstants.code200).send(response);
   }
