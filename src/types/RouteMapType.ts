@@ -7,13 +7,15 @@ type RouteMapType = {
   //Path
   [key: string]: {
     // Get, put, post, delete
-    [method in RouteMethods]?: {
-      // Controller for route
-      controller: AbstractRouteController;
-      // List of middleware to applied to specific route (in order)
-      middleware: ((req: Request, res: Response, next: NextFunction) => any)[];
-    };
+    [method in RouteMethods]?: RouteComponent;
   };
 };
 
-export default RouteMapType;
+type RouteComponent = {
+  // Controller for route
+  controller: AbstractRouteController;
+  // List of middleware to applied to specific route (in order)
+  middleware: ((req: Request, res: Response, next: NextFunction) => any)[];
+};
+
+export { RouteMapType, RouteComponent };

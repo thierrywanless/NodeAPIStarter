@@ -1,7 +1,8 @@
+const dbConfig = require("@config/DatabaseConfig");
+
 import * as path from "path";
 import * as dotenv from "dotenv-safe";
 
-import dbConfig from "@config/DatabaseConfig";
 import Environments from "@constants/Environments";
 import { getEnumKeyByEnumValue } from "@src/utils/helpers/EnumHelpers";
 import { ConfigType } from "@domainTypes/ConfigTypes";
@@ -19,6 +20,14 @@ if (process.env.NODE_ENV !== "prod") {
  */
 const env: Environments =
   Environments[getEnumKeyByEnumValue(Environments, process.env.NODE_ENV) as keyof typeof Environments];
+
+let dbCon = dbConfig.dev;
+if (env === Environments.Test) {
+  dbCon = dbConfig.test;
+} else if (env === Environments.Prod) {
+  dbCon = dbConfig.prod;
+}
+
 const config: ConfigType = {
   ROOT: path.join(__dirname, "../.."),
   ENV: env, // dev, prod, test
@@ -31,7 +40,7 @@ const config: ConfigType = {
   DB_PORT: Number(process.env.DB_PORT) || 5432,
   DB_LOGGING: Boolean(process.env.DB_LOGGING) || true,
   // Sequelize connection
-  DATABASE_CONNECTION: dbConfig[env],
+  DATABASE_CONNECTION: dbCon,
 };
 
 export default config;

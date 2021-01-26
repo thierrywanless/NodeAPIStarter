@@ -19,7 +19,7 @@ const sequelizeConnection = new Sequelize({
     }
   },
   repositoryMode: true,
-  models: [join(__dirname + "/../models/**/*.model.{js, ts}")],
+  models: [join(__dirname + "/../../models/**/*.model.{js, ts}")],
   modelMatch: (filename, member) => {
     return filename.substring(0, filename.indexOf(".model")).toLowerCase() === member.toLowerCase();
   },

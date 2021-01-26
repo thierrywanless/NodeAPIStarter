@@ -1,8 +1,6 @@
 import { Express, Response, Request, NextFunction } from "express";
 
 import StatusConstants from "@constants/StatusConstants";
-import { ApiException } from "@src/utils/exceptions/ApiException";
-import ErrorCodes from "@constants/ErrorCodes";
 
 export default class ErrorHandlingMiddleware {
   app: Express;

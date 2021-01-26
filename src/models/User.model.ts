@@ -1,7 +1,7 @@
 import { Model, Table, Column, PrimaryKey, IsEmail, Unique, AutoIncrement } from "sequelize-typescript";
 
 @Table
-export default class User extends Model<User> {
+export default class User extends Model implements IUser {
   @PrimaryKey
   @AutoIncrement
   @Column
@@ -10,5 +10,10 @@ export default class User extends Model<User> {
   @IsEmail
   @Unique
   @Column
-  public email: string = "";
+  public email!: string;
+}
+
+export interface IUser {
+  id: number;
+  email: string;
 }

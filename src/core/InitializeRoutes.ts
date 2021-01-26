@@ -1,6 +1,7 @@
 import { Express, Router } from "express";
 
 import UserRoutes from "@routes/user/UserRoutes";
+import { checkSchema } from "express-validator";
 
 export default class InitializeRoutes {
   // Initialize app routing from base url ".../"
@@ -20,39 +21,55 @@ export default class InitializeRoutes {
       const pathMethods = routes[path];
 
       if (pathMethods.get) {
-        const routeComponents = pathMethods.get;
+        const routeComponent = pathMethods.get;
+        const schema = routeComponent.controller.validationSchema();
         router
-          .get(path, routeComponents.middleware, routeComponents.controller.runService.bind(routeComponents.controller))
-          .bind(routeComponents.controller);
+          .get(
+            path,
+            routeComponent.middleware,
+            checkSchema(schema),
+            routeComponent.controller.runService.bind(routeComponent.controller),
+          )
+          .bind(routeComponent.controller);
       }
 
       if (pathMethods.put) {
-        const routeComponents = pathMethods.put;
+        const routeComponent = pathMethods.put;
+        const schema = routeComponent.controller.validationSchema();
         router
-          .put(path, routeComponents.middleware, routeComponents.controller.runService.bind(routeComponents.controller))
-          .bind(routeComponents.controller);
+          .put(
+            path,
+            routeComponent.middleware,
+            checkSchema(schema),
+            routeComponent.controller.runService.bind(routeComponent.controller),
+          )
+          .bind(routeComponent.controller);
       }
 
       if (pathMethods.post) {
-        const routeComponents = pathMethods.post;
+        const routeComponent = pathMethods.post;
+        const schema = routeComponent.controller.validationSchema();
         router
           .post(
             path,
-            routeComponents.middleware,
-            routeComponents.controller.runService.bind(routeComponents.controller),
+            routeComponent.middleware,
+            checkSchema(schema),
+            routeComponent.controller.runService.bind(routeComponent.controller),
           )
-          .bind(routeComponents.controller);
+          .bind(routeComponent.controller);
       }
 
       if (pathMethods.delete) {
-        const routeComponents = pathMethods.delete;
+        const routeComponent = pathMethods.delete;
+        const schema = routeComponent.controller.validationSchema();
         router
           .delete(
             path,
-            routeComponents.middleware,
-            routeComponents.controller.runService.bind(routeComponents.controller),
+            routeComponent.middleware,
+            checkSchema(schema),
+            routeComponent.controller.runService.bind(routeComponent.controller),
           )
-          .bind(routeComponents.controller);
+          .bind(routeComponent.controller);
       }
     }
 
