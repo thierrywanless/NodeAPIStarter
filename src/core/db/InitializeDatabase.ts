@@ -1,17 +1,18 @@
 import { Sequelize } from "sequelize-typescript";
 import { join } from "path";
 
-import Config from "@core/Config";
+import Config from "@config/Config";
 
+const dbCon = Config.DATABASE_CONNECTION;
 const sequelizeConnection = new Sequelize({
-  dialect: "postgres",
-  database: Config.DB_NAME,
-  username: Config.DB_USER,
-  password: Config.DB_PASSWORD,
-  host: Config.DB_HOST,
-  port: Config.DB_PORT,
+  dialect: dbCon.dialect,
+  database: dbCon.database,
+  username: dbCon.username,
+  password: dbCon.password,
+  host: dbCon.host,
+  port: dbCon.port,
   logging: (msg) => {
-    if (Config.DB_LOGGING) {
+    if (dbCon.logging) {
       return console.log(msg);
     } else {
       return false;

@@ -15,6 +15,7 @@
     "baseUrl": "./",
     "skipLibCheck": true,
     "paths": {
+      "@config/*": ["src/config/*"],
       "@constants/*": ["src/constants/*"],
       "@core/*": ["src/core/*"],
       "@domainTypes/*": ["src/types/*"],

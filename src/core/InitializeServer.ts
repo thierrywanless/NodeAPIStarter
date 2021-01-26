@@ -3,7 +3,7 @@ import express, { Express } from "express";
 import InitializeMiddleWare from "@core/InitializeMiddleware";
 import InitializeRoutes from "@core/InitializeRoutes";
 
-import Config from "@core/Config";
+import Config from "@config/Config";
 
 export default async function server(): Promise<Express> {
   const app: Express = express();

@@ -1,6 +1,6 @@
 require("module-alias/register");
 
-import InitializeDatabase from "@core/InitializeDatabase";
+import InitializeDatabase from "@core/db/InitializeDatabase";
 
 const AppDatabase = InitializeDatabase;
 
