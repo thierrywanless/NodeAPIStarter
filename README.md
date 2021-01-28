@@ -5,7 +5,8 @@ A starter format for Node.js APIs using Express.
 1. TypeScript
 2. Prettier/ESLint
 3. Mocha & Chai
-4. Sequelize (default configured for PostgreSQL)
+4. Sequelize (default configured for PostgreSQL) with migrations/seeds
+5. Endpoint validation/sanitization
 
 ## Setup
 
